@@ -50,7 +50,7 @@ struct no * remove_first(struct no * lista) {
 struct no * remove_last(struct no * lista) {   
     if (lista == NULL) return NULL; // lista vazia
     
-    struct no *curr = lista;
+    struct no *curr = lista; //Cria o curr e o atribui no início da lista
     while (curr->prox->prox != NULL) { //!!!PENULTIMO!!
         curr = curr->prox;
     }

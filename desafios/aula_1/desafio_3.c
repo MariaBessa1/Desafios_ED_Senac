@@ -49,31 +49,31 @@ struct no * remove_last(struct no * lista) {
     if (lista == NULL) return NULL; // lista vazia
 
     struct no *curr = lista;
-    while (curr->prox->prox != NULL) { //!!!PENULTIMO!!
+    while (curr->prox->prox != NULL) { 
         curr = curr->prox;
     }
-      curr->prox = NULL; //O "proximo do penultimo" vira null
+      curr->prox = NULL; 
       return lista;
 }
 
 //---------------------------DESAFIO AQUI----------------------------------------
 
 struct no * remove_value(struct no *lista, int value) {
-    struct no *curr = lista;
+    struct no *curr = lista; //Cria o curr e o atribui no início da lista
     
     //CASO O VALOR A SER REMOVIDO SEJA O PRIMEIRO
-    if (lista->info == value) {
-    struct no* removePrimeiro = lista->prox;
+    if (lista->info == value) { //se o primeiro valor da lista já for o que vai ser removido...
+    struct no* removePrimeiro = lista->prox; //A lista recebe o próximo nó, "desconectando" com o anterior e o removendo
     return removePrimeiro;
     }
 
     //RESTANTE
-    while (curr->prox != NULL) {
+    while (curr != NULL) {
 
-        if (curr->prox->info == value) {
-            struct no *temporario = curr->prox; 
-            curr->prox = temporario->prox;
-            free(temporario);
+        if (curr->prox->info == value) { //Se o valor do próximo nó for o valor que vai ser removido...
+            struct no *temporario = curr->prox; //"Temporário" aponta para esse próximo nó
+            curr->prox = temporario->prox; // o próximo nó do curr será o próximo do temporário
+            free(temporario); // o nó com o valor removido é apagado
             return lista;
         }
         curr = curr->prox;

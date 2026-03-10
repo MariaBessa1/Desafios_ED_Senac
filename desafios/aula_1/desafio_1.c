@@ -33,9 +33,9 @@ void insert_last(struct no * lista, int info) {
 //---------------------------DESAFIO AQUI----------------------------------------
 
 void print_list (struct no * lista){   
-    struct no *curr = lista;
+    struct no *curr = lista; //Cria o curr e o atribui no início da lista
     while (curr != NULL) {
-        printf("%d \n", curr -> info);  //Aponta p/ info pra 
+        printf("%d \n", curr -> info);  //printa a informação do nó que o curr está apontando
         curr = curr->prox;
     }
 }
