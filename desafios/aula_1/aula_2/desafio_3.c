@@ -129,7 +129,7 @@ ListaLigada insereOrdenado (ListaLigada lista, int alvo) {
     Celula nova = novaCelula(alvo);
     
     //Caso o valor seja o primeiro:
-        if (alvo < lista->inicio->info){
+        if (alvo < lista->inicio->info || lista->inicio == NULL){
             llInsereNoInicio(lista, alvo);
             return lista;
         }
