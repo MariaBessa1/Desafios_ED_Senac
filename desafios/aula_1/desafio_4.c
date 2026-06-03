@@ -104,6 +104,7 @@ int main() {
    
    printf ("Lista original: ");
    print_list (lista);
+
     lista = reverse_list(lista);
    printf ("\nLista reversa: ");
    print_list (lista);
