@@ -148,7 +148,7 @@ public class BST
     {
     if (no == null)
         return 0;
-
+    
     int alturaEsq = AlturaRecursiva(no.Esquerdo);
     int alturaDir = AlturaRecursiva(no.Direito);
 
