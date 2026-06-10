@@ -141,7 +141,25 @@ public class BST
     {
         this.printNicely(this.Raiz, ".");
     }
-    
+
+    //Para o desafio Nas Alturas
+
+    private int AlturaRecursiva(No no)
+    {
+    if (no == null)
+        return 0;
+
+    int alturaEsq = AlturaRecursiva(no.Esquerdo);
+    int alturaDir = AlturaRecursiva(no.Direito);
+
+    return Math.Max(alturaEsq, alturaDir) + 1;
+    }
+
+    public int Altura()
+    {
+        return AlturaRecursiva(Raiz);
+    }
+        
    
 
     

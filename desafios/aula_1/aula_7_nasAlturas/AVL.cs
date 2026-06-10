@@ -1,3 +1,4 @@
+using System;
 
 public class AVL
 {
@@ -8,8 +9,8 @@ public class AVL
     if (no != null)
     {
       Console.WriteLine(spacing + no.Chave);
-      this.printNicely(node.Esq, spacing + "..");
-      this.printNicely(node.Dir, spacing + "..");
+      this.printNicely(no.Esq, spacing + "..");
+      this.printNicely(no.Dir, spacing + "..");
     }
   }
 
@@ -66,17 +67,14 @@ public class AVL
   {
     if (raiz == null) return new NoAVL(chave);
 
-    // Igual BST padrão: vamos buscar onde inserir o nó
-    // navegando pela árvore
+    /
     if (chave > raiz.Chave)
       raiz.Dir = InserirRecursivo(raiz.Dir, chave);
     else
       raiz.Esq = InserirRecursivo(raiz.Esq, chave);
 
-    // Aqui nós modificamos a raiz, adicionando algo à direita ou 
-    // à esquerda. Por isso, recalculamos sua altura.
     raiz.CalculaAltura();
-    // Agora, vamos verificar se o nó está desbalanceado
+   
     if (raiz.FatorDeBalanceamento == 2)
     {
       if (raiz.Esq?.FatorDeBalanceamento < 0)
@@ -99,6 +97,13 @@ public class AVL
   {
     Raiz = InserirRecursivo(Raiz, valor);
   }
+   public int Altura()
+    {
+        if (Raiz == null)
+            return 0;
+
+        return Raiz.Altura;
+    }
 
 
 }
